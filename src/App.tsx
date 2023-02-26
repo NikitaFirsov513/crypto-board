@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { Header } from './components/header/Header';
 import { LOAD_TEST } from './redux/reducers/test/testActionType';
 
 function App() {
@@ -16,8 +17,13 @@ function App() {
 
   }, [])
   return (
-    <div className="App">
-      <h1>First</h1>
+    <div className="app">
+      <div className="app__container">
+        <Header />
+
+
+
+      </div>
     </div>
   )
 }
