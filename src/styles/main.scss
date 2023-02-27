@@ -15,6 +15,16 @@ body {
     --assets-text-color: #9381ff;
     --sub-title-color: #7d67ff;
 }
+h1 {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: uppercase;
+
+    color: var(--h1-color);
+}
 .dark {
     --logo-color: #e1dfec;
     --logo-svg-color: #e1dfec;
@@ -83,6 +93,88 @@ body {
                 & path {
                     fill: var(--theme-icon-color);
                 }
+            }
+        }
+    }
+    &__assets {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 60px 0 60px;
+        gap: 24px;
+        & h1 {
+            margin-left: 15px;
+        }
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        &-element {
+            padding: 11px 16px 18px 14px;
+            background: linear-gradient(292.53deg, #7d67ff 31.56%, rgba(147, 129, 255, 0.75) 97.92%);
+            border-radius: 10px;
+
+            &-top {
+                display: flex;
+                align-items: flex-end;
+                gap: 30px;
+            }
+            &-info-name {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 31px;
+
+                color: #ffffff;
+            }
+            &-info-price {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 40px;
+                line-height: 52px;
+                /* identical to box height */
+
+                letter-spacing: 0.04em;
+
+                color: #ffffff;
+            }
+            &-bot {
+                margin-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+
+                & :nth-child(2) {
+                    justify-content: center;
+                }
+                & :nth-child(5) {
+                    justify-content: center;
+                }
+                & :nth-child(3) {
+                    justify-content: right;
+                }
+                & :nth-child(6) {
+                    justify-content: right;
+                }
+                & p {
+                    display: flex;
+                    width: 33%;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+            &-lable {
+                color: #ffffff;
+            }
+            &-profit {
+                color: #3edd87;
+            }
+            &-loss {
+                color: #f46565;
+            }
+            &-netral {
+                color: #cabbb2;
             }
         }
     }
