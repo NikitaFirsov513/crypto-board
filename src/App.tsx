@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Assets } from './components/assets/Assets';
 import { Header } from './components/header/Header';
 import { Charts } from './components/сharts/Charts';
+import { LOAD_ASSETS } from './redux/reducers/assets/assetsActionType';
 import { LOAD_TEST } from './redux/reducers/test/testActionType';
 
 function App() {
@@ -11,9 +12,9 @@ function App() {
 
   useEffect(() => {
     dispatch({
-      type: LOAD_TEST,
+      type: LOAD_ASSETS,
       payload: {
-        data: LOAD_TEST
+        data: LOAD_ASSETS
       }
     })
 

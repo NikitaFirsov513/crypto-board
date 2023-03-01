@@ -1,4 +1,3 @@
-
 export type TData = {
     meta: {
         symbol: string;
