@@ -3,7 +3,7 @@ import { RootState, useAppSelector } from "../../redux/store";
 
 export const Charts = () => {
   const data = useAppSelector((state) => state.assets.assetsList);
-
+  //console.log(data);
   const test = () => {
     document
       .getElementById("test")

@@ -1,116 +1,141 @@
 export type TData = {
-    meta: {
-        symbol: string;
-        interval: string;
-        currency: string;
-        exchange_timezone: string;
-        exchange: string;
-        mic_code: string;
-        type: string;
-    };
-    values: {
-        datetime: string;
-        open: string;
-        high: string;
-        low: string;
-        close: string;
-        volume: string;
-    }[];
-    status: string;
-}
+  meta: {
+    symbol: string;
+    interval?: string;
+    currency?: string;
+    exchange_timezone?: string;
+    exchange?: string;
+    mic_code?: string;
+    type?: string;
+    currency_base?: string;
+    currency_quote?: string;
+  };
+  values: {
+    datetime: string;
+    open: string;
+    high: string;
+    low: string;
+    close: string;
+    volume?: string;
+  }[];
+  status: string;
+};
 
 export const data = {
-    "meta": {
-        "symbol": "AMZN",
-        "interval": "1min",
-        "currency": "USD",
-        "exchange_timezone": "America/New_York",
-        "exchange": "NASDAQ",
-        "mic_code": "XNGS",
-        "type": "Common Stock"
+  meta: {
+    symbol: "BTC/USD",
+    interval: "1day",
+    currency_base: "Bitcoin",
+    currency_quote: "US Dollar",
+    exchange: "Coinbase Pro",
+    type: "Digital Currency",
+  },
+  values: [
+    {
+      datetime: "2023-03-02",
+      open: "23636.66992",
+      high: "23786.63086",
+      low: "23204.75977",
+      close: "23314.81055",
     },
-    "values": [
-        {
-            "datetime": "2023-02-24 15:59:00",
-            "open": "93.53500",
-            "high": "93.65000",
-            "low": "93.46000",
-            "close": "93.49000",
-            "volume": "1324763"
-        },
-        {
-            "datetime": "2023-02-24 15:58:00",
-            "open": "93.62000",
-            "high": "93.62000",
-            "low": "93.51500",
-            "close": "93.53580",
-            "volume": "752826"
-        },
-        {
-            "datetime": "2023-02-24 15:57:00",
-            "open": "93.51000",
-            "high": "93.64000",
-            "low": "93.50500",
-            "close": "93.61500",
-            "volume": "683087"
-        },
-        {
-            "datetime": "2023-02-24 15:56:00",
-            "open": "93.36000",
-            "high": "93.53000",
-            "low": "93.35000",
-            "close": "93.51000",
-            "volume": "617200"
-        },
-        {
-            "datetime": "2023-02-24 15:55:00",
-            "open": "93.12500",
-            "high": "93.38000",
-            "low": "93.11000",
-            "close": "93.36000",
-            "volume": "622311"
-        },
-        {
-            "datetime": "2023-02-24 15:54:00",
-            "open": "92.93500",
-            "high": "93.13000",
-            "low": "92.92000",
-            "close": "93.12500",
-            "volume": "417136"
-        },
-        {
-            "datetime": "2023-02-24 15:53:00",
-            "open": "92.82000",
-            "high": "92.96000",
-            "low": "92.82000",
-            "close": "92.93500",
-            "volume": "347250"
-        },
-        {
-            "datetime": "2023-02-24 15:52:00",
-            "open": "92.67000",
-            "high": "92.82500",
-            "low": "92.66000",
-            "close": "92.82000",
-            "volume": "436407"
-        },
-        {
-            "datetime": "2023-02-24 15:51:00",
-            "open": "92.57500",
-            "high": "92.68000",
-            "low": "92.55500",
-            "close": "92.67240",
-            "volume": "265391"
-        },
-        {
-            "datetime": "2023-02-24 15:50:00",
-            "open": "92.62000",
-            "high": "92.68000",
-            "low": "92.53000",
-            "close": "92.57500",
-            "volume": "406295"
-        },
-        
-    ],
-    "status": "ok"
-}
+    {
+      datetime: "2023-03-01",
+      open: "23135.34961",
+      high: "23978.40039",
+      low: "23029.17969",
+      close: "23636.66992",
+    },
+    {
+      datetime: "2023-02-28",
+      open: "23490.81055",
+      high: "23595.59961",
+      low: "23035.00000",
+      close: "23128.75977",
+    },
+    {
+      datetime: "2023-02-27",
+      open: "23558.92969",
+      high: "23887.00000",
+      low: "23130.94922",
+      close: "23492.50977",
+    },
+    {
+      datetime: "2023-02-26",
+      open: "23161.83008",
+      high: "23680.34961",
+      low: "23064.94922",
+      close: "23558.92969",
+    },
+    {
+      datetime: "2023-02-25",
+      open: "23187.65039",
+      high: "23220.09961",
+      low: "22822.33008",
+      close: "23167.38086",
+    },
+    {
+      datetime: "2023-02-24",
+      open: "23940.66992",
+      high: "24130.33008",
+      low: "22899.59961",
+      close: "23188.28906",
+    },
+    {
+      datetime: "2023-02-23",
+      open: "24183.36914",
+      high: "24599.83984",
+      low: "23623.88086",
+      close: "23941.82031",
+    },
+    {
+      datetime: "2023-02-22",
+      open: "24452.98047",
+      high: "24474.51953",
+      low: "23598.25000",
+      close: "24183.08008",
+    },
+    {
+      datetime: "2023-02-21",
+      open: "24847.13086",
+      high: "25167.17969",
+      low: "24159.85938",
+      close: "24451.90039",
+    },
+    {
+      datetime: "2023-02-20",
+      open: "24294.52930",
+      high: "25102.60938",
+      low: "23853.98047",
+      close: "24841.59961",
+    },
+    {
+      datetime: "2023-02-19",
+      open: "24634.11914",
+      high: "25174.89062",
+      low: "24260.11914",
+      close: "24307.16016",
+    },
+    {
+      datetime: "2023-02-18",
+      open: "24570.89062",
+      high: "24860.08984",
+      low: "24453.07031",
+      close: "24638.34961",
+    },
+    {
+      datetime: "2023-02-17",
+      open: "23534.11914",
+      high: "25008.32031",
+      low: "23382.56055",
+      close: "24570.89062",
+    },
+    {
+      datetime: "2023-02-16",
+      open: "24334.03906",
+      high: "25235.83984",
+      low: "23533.75977",
+      close: "23534.11914",
+    },
+  ],
+  status: "ok",
+};
