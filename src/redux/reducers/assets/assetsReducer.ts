@@ -21,7 +21,7 @@ export default function assetsReducer(
       console.log(action.payload);
       return {
         ...state,
-        assetsList: [action.payload],
+        assetsList: [...state.assetsList, action.payload],
       };
     }
     default:

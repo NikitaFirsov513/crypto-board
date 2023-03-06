@@ -10,8 +10,8 @@ import { ChartsElement } from "./ChartsElement";
 export const Charts = () => {
   //const data = useAppSelector((state) => state.assets.assetsList);
   //console.log(data);
-  const boundaryValues = useRef(findMinMax(dataTwo, 280));
-
+  const data = useAppSelector((state) => state.charts.chartsList[0]);
+  const boundaryValues = useRef(findMinMax(data, 280));
   console.log(boundaryValues);
   const test = () => {
     document
@@ -25,14 +25,14 @@ export const Charts = () => {
       <h1>Candlestick Chart</h1>
       <div className="app__charts-list">
         <div className="app__charts-element">
-          <h2>{dataTwo.meta.symbol}</h2>
+          <h2>{data.meta.symbol}</h2>
           <div className="app__charts-container">
             <div className="app__charts-metric">
 
               {metricsArray.map((elem) => <p key={elem}>{elem}</p>)}
             </div>
             <div className="app__charts-candlestick">
-              {dataTwo.values.map((elem, i) => {
+              {data.values.map((elem, i) => {
                 return (
                   <ChartsElement
                     index={i}

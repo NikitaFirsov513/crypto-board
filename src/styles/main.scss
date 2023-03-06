@@ -213,15 +213,19 @@ h2 {
             gap: 8px;
             & p {
                 color: var(--h2-color);
-                width: 25px;
                 height: 21px;
                 font-style: normal;
                 font-weight: 500;
                 font-size: 14px;
                 line-height: 18px;
                 display: flex;
+                text-align: center;
+                display: flex;
             }
-            & p::before {
+            & p:first-child {
+                display: flex;
+            }
+            & p::after {
                 z-index: 0;
                 content: " ";
                 display: block;
@@ -229,7 +233,7 @@ h2 {
                 width: 495px;
                 position: absolute;
                 margin-left: 36px;
-                margin-top: 11px;
+                margin-top: 10px;
                 background: var(--line-color);
             }
         }
@@ -268,7 +272,7 @@ h2 {
                     line-height: 13px;
                     /* identical to box height */
 
-                    color: #e1dfec;
+                    color: var(--sub-title-color);
                 }
                 &-info {
                     position: absolute;
