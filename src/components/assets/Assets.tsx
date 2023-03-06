@@ -10,7 +10,7 @@ export const Assets = () => {
       <h1>ASSETS</h1>
       <div className="app__assets-list">
         {data.map((elem) => {
-          return <AssetsElement data={elem} />;
+          return <AssetsElement key={elem.meta.symbol} data={elem} />;
         })}
       </div>
     </div>

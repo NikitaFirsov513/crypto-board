@@ -1,3 +1,4 @@
+import { useReducer, useRef } from "react";
 import { chartsElementStyle } from "../../utils/chartsElementStyle";
 import { TChartsElement } from "./Charts.props";
 
@@ -10,6 +11,9 @@ export const ChartsElement = ({
   close,
   boundaryValues,
 }: TChartsElement) => {
+
+  const elem = useRef<HTMLDivElement>(null)
+
   const styles = chartsElementStyle({
     index,
     datetime,
@@ -19,10 +23,22 @@ export const ChartsElement = ({
     close,
     boundaryValues,
   });
+  console.group()
+  console.log({ open })
+  console.log({ high })
+  console.log({ low })
+  console.log({ close })
+  console.log({ styles })
 
+  console.groupEnd()
+
+
+  const show = () => {
+    elem.current?.classList.toggle("app__charts-candlestick-elem-info--active");
+  };
   return (
     <div className="app__charts-candlestick-elem">
-      <div
+      <div onMouseOver={() => show()} onMouseOut={() => show()}
         style={{
           height: styles.graphElem.height,
           marginBottom: styles.graphElem.marginBottom,
@@ -39,13 +55,45 @@ export const ChartsElement = ({
         ></span>
         <span
           style={{
-            marginTop: -styles.botSpan.height,
+            marginTop: styles.graphElem.height,
             height: styles.botSpan.height,
             background: styles.color,
           }}
         ></span>
+        <div ref={elem} className="app__charts-candlestick-elem-info">
+          <p>open:{open}</p>
+          <p>high:{high}</p>
+          <p>low:{low}</p>
+          <p>close:{close}</p>
+
+        </div>
       </div>
       <p>10:00</p>
-    </div>
+    </div >
   );
-};
+};/* <div className="app__charts-candlestick-elem">
+<div
+  style={{
+    height: styles.graphElem.height,
+    marginBottom: styles.graphElem.marginBottom,
+    backgroundColor: styles.color,
+  }}
+  className="app__charts-candlestick-elem-body"
+>
+  <span
+    style={{
+      marginTop: -styles.topSpan.height,
+      height: styles.topSpan.height,
+      background: styles.color,
+    }}
+  ></span>
+  <span
+    style={{
+      marginTop: -styles.botSpan.height,
+      height: styles.botSpan.height,
+      background: styles.color,
+    }}
+  ></span>
+</div>
+<p>10:00</p>
+</div>*/

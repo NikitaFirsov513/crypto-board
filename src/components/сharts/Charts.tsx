@@ -1,20 +1,24 @@
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppSelector } from "../../redux/store";
+import { createMetricsArray } from "../../utils/createMetricsArray";
 import { data } from "../../utils/data";
+import { dataTwo } from "../../utils/dataTwo";
 import { findMinMax } from "../../utils/findMinMax";
 import { ChartsElement } from "./ChartsElement";
 
 export const Charts = () => {
   //const data = useAppSelector((state) => state.assets.assetsList);
   //console.log(data);
-  const boundaryValues = useRef(findMinMax(data, 280));
+  const boundaryValues = useRef(findMinMax(dataTwo, 280));
+
   console.log(boundaryValues);
   const test = () => {
     document
       .getElementById("test")
       ?.classList.toggle("app__charts-candlestick-elem-info--active");
   };
+  const metricsArray = createMetricsArray(boundaryValues.current.min, 10, boundaryValues.current.diff / 10)
 
   return (
     <div className="app__charts">
@@ -24,19 +28,11 @@ export const Charts = () => {
           <h2>Bitcoin</h2>
           <div className="app__charts-container">
             <div className="app__charts-metric">
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
-              <p>100</p>
+              
+              {metricsArray.map((elem) => <p>{elem}</p>)}
             </div>
             <div className="app__charts-candlestick">
-              {data.values.map((elem, i) => {
+              {dataTwo.values.map((elem, i) => {
                 return (
                   <ChartsElement
                     index={i}
