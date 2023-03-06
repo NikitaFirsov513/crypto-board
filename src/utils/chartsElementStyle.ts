@@ -13,7 +13,8 @@ export const chartsElementStyle = ({
 
   if (open <= close) {
     return {
-      color: "#F46565",
+      color: "#3edd87",
+
       graphElem: {
         height: (close - open) / px,
         marginBottom: (open - min) / px,
@@ -28,7 +29,8 @@ export const chartsElementStyle = ({
     };
   }
   return {
-    color: "#3edd87",
+    color: "#F46565",
+
     graphElem: {
       height: (open - close) / px,
       marginBottom: (close - min) / px,

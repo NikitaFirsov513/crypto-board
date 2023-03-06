@@ -28,6 +28,8 @@ export const ChartsElement = ({
   console.log({ high })
   console.log({ low })
   console.log({ close })
+  console.log({ datetime })
+
   console.log({ styles })
 
   console.groupEnd()
@@ -68,7 +70,7 @@ export const ChartsElement = ({
 
         </div>
       </div>
-      <p>10:00</p>
+      <p>{datetime.split('-')[1]}.{datetime.split('-')[2]}</p>
     </div >
   );
 };/* <div className="app__charts-candlestick-elem">

@@ -240,6 +240,7 @@ h2 {
             margin-top: 29px;
             margin-left: 25px;
             align-items: flex-end;
+            flex-direction: row-reverse;
             &-elem {
                 display: flex;
                 flex-direction: column;
@@ -276,7 +277,7 @@ h2 {
                     background-color: #ffffff;
                     border-radius: 7px;
                     display: none;
-                   
+
                     & p {
                         width: 100%;
                         font-family: "DM Sans";
@@ -288,7 +289,7 @@ h2 {
 
                         color: #352e5b;
                     }
-                    &--active{
+                    &--active {
                         display: flex;
                         flex-direction: column;
                         padding: 8px;

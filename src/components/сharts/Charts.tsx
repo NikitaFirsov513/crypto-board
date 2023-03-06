@@ -25,11 +25,11 @@ export const Charts = () => {
       <h1>Candlestick Chart</h1>
       <div className="app__charts-list">
         <div className="app__charts-element">
-          <h2>Bitcoin</h2>
+          <h2>{dataTwo.meta.symbol}</h2>
           <div className="app__charts-container">
             <div className="app__charts-metric">
-              
-              {metricsArray.map((elem) => <p>{elem}</p>)}
+
+              {metricsArray.map((elem) => <p key={elem}>{elem}</p>)}
             </div>
             <div className="app__charts-candlestick">
               {dataTwo.values.map((elem, i) => {
@@ -37,7 +37,7 @@ export const Charts = () => {
                   <ChartsElement
                     index={i}
                     key={elem.datetime}
-                    datetime={i + "---" + elem.datetime}
+                    datetime={elem.datetime}
                     open={Number(elem.open)}
                     high={Number(elem.high)}
                     low={Number(elem.low)}
