@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react";
 import { TData } from "../../utils/data";
 import { findMinMax } from "../../utils/findMinMax";
+import { TAssetsElement } from "./Assets.props";
 
-type TAssetsElement = {
-  data: TData;
-};
-//Изменить 1ю точку
 export const AssetsElement = ({ data }: TAssetsElement) => {
   const refCanvas = useRef<HTMLCanvasElement | null>(null);
-  const boundaryValues = useRef(findMinMax(data));
+  const boundaryValues = useRef(findMinMax(data, 52));
 
   useEffect(() => {
     console.log(data);
@@ -25,14 +22,18 @@ export const AssetsElement = ({ data }: TAssetsElement) => {
     context.lineWidth = 2;
     context.strokeStyle = "rgb(255,255,255)";
     context.lineCap = "round";
-    context.moveTo(0, 52);
+    //context.moveTo(0, 52);
 
     for (let i = 0; i < data.values.length; i++) {
       const high = Number(data.values[i].high);
 
-      context.lineTo(i * (110 / data.values.length), (high - min) / px);
-      const x = i * (110 / data.values.length);
-      const y = (high - min) / px;
+      if (i == 0) {
+        context.moveTo(0, (high - min) / px);
+      } else {
+        context.lineTo(i * (110 / data.values.length), (high - min) / px);
+        const x = i * (110 / data.values.length);
+        const y = (high - min) / px;
+      }
     }
     context.stroke();
   }, []);
