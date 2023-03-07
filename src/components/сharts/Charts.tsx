@@ -5,6 +5,7 @@ import { createMetricsArray } from "../../utils/createMetricsArray";
 import { data } from "../../utils/data";
 import { dataTwo } from "../../utils/dataTwo";
 import { findMinMax } from "../../utils/findMinMax";
+import { AddNewElement } from "../buttons/addNewElement";
 import { ChartsElement } from "./ChartsElement";
 
 export const Charts = () => {
@@ -46,9 +47,15 @@ export const Charts = () => {
                   />
                 );
               })}
+
             </div>
           </div>
         </div>
+
+        <div className="app__charts-button">
+          <AddNewElement />
+        </div>
+
       </div>
     </div>
   );
