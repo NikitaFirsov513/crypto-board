@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react";
+import { useRef } from "react";
 import { chartsElementStyle } from "../../utils/chartsElementStyle";
 import { TChartsElement } from "./Charts.props";
 
@@ -23,7 +23,7 @@ export const ChartsElement = ({
     close,
     boundaryValues,
   });
- 
+
 
 
   const show = () => {

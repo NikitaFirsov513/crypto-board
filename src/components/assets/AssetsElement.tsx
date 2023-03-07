@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { TData } from "../../utils/data";
 import { findMinMax } from "../../utils/findMinMax";
 import { TAssetsElement } from "./Assets.props";
 

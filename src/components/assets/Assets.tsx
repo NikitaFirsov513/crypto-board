@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { findMinMax } from "../../utils/findMinMax";
+import { useState } from "react";
 import { useAppSelector } from "../../redux/store";
 import { AssetsElement } from "./AssetsElement";
 import { AddNewElement } from "../AddNew/AddNewElement";
