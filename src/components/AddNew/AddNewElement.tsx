@@ -1,3 +1,6 @@
+import { useRef, useState } from "react";
+import { changeSymbolList } from "../../utils/changeSymbolList";
+import { symbolList } from "../../utils/sumbolList";
 
 type TAddNewElementProps = {
     title: string,
@@ -6,6 +9,32 @@ type TAddNewElementProps = {
 }
 
 export const AddNewElement = ({ title, handleClick, show }: TAddNewElementProps) => {
+
+
+    const [mas, setMas] = useState(symbolList);
+    const [value, setValue] = useState('');
+    const timeout = useRef<number>();
+
+
+    function changeInput(inputVal: string) {
+        clearTimeout(timeout.current);
+
+        if (inputVal === undefined)
+            return
+
+        setValue(inputVal);
+
+        
+        timeout.current = setTimeout(() => {
+            if (value == '') {
+                setMas(symbolList);
+            } else {
+                setMas(changeSymbolList(symbolList, value));
+            }
+        }, 1000);
+
+    }
+
 
     return (
         <>
@@ -21,18 +50,9 @@ export const AddNewElement = ({ title, handleClick, show }: TAddNewElementProps)
                 <div onClick={e => handleClick()} className="app__add">
                     <div onClick={e => { e.stopPropagation(); }} className="app__add-wrapper">
                         <h1>{title}</h1>
-                        <input type="text" placeholder="placeholder" />
+                        <input type="text" value={value} onChange={e => changeInput(e.target.value)} placeholder="placeholder" />
                         <div className="app__add-list">
-
-                            <p>
-                                Bitcoin (BTC/USD)
-                            </p>
-                            <p>
-                                Bitcoin (BTC/USD)
-                            </p>
-                            <p>
-                                Bitcoin (BTC/USD)
-                            </p>
+                            {mas.map((elem, i) => <p key={elem.name + i}>{elem.name} ({elem.symbol}/{elem.currency})</p>)}
                         </div>
                     </div>
                 </div>

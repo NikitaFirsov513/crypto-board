@@ -1,6 +1,5 @@
 
 export type TSymbolList= {
-    data: {
         symbol: string;
         name: string;
         currency: string;
@@ -9,12 +8,9 @@ export type TSymbolList= {
         country: string;
         type: string;
     }[];
-    status: string;
-}
 
-export const symbolList = {
-    "data": [
-      {
+
+export const symbolList = [{
         "symbol": "AACG",
         "name": "ATA Creativity Global",
         "currency": "USD",
@@ -45734,6 +45730,4 @@ export const symbolList = {
         "country": "United States",
         "type": "Common Stock"
       }
-    ],
-    "status": "ok"
-  }
+    ]

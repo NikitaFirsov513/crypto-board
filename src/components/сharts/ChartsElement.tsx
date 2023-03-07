@@ -23,16 +23,7 @@ export const ChartsElement = ({
     close,
     boundaryValues,
   });
-  console.group()
-  console.log({ open })
-  console.log({ high })
-  console.log({ low })
-  console.log({ close })
-  console.log({ datetime })
-
-  console.log({ styles })
-
-  console.groupEnd()
+ 
 
 
   const show = () => {
@@ -98,4 +89,15 @@ export const ChartsElement = ({
   ></span>
 </div>
 <p>10:00</p>
-</div>*/
+</div>
+
+
+
+ console.group()
+  console.log({ open })
+  console.log({ high })
+  console.log({ low })
+  console.log({ close })
+  console.log({ datetime })
+  console.log({ styles })
+  console.groupEnd()*/
