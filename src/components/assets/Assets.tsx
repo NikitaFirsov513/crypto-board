@@ -1,12 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { findMinMax } from "../../utils/findMinMax";
 import { useAppSelector } from "../../redux/store";
 import { AssetsElement } from "./AssetsElement";
-import { AddNewElement } from "../buttons/addNewElement";
+import { AddNewElement } from "../AddNew/AddNewElement";
 
 export const Assets = () => {
   const data = useAppSelector((state) => state.assets.assetsList);
+  const [show, setShow] = useState<boolean>(false);
 
+  const test = () => {
+    setShow((prev) => !prev);
+  };
   return (
     <div className="app__assets">
       <h1>ASSETS</h1>
@@ -15,7 +19,7 @@ export const Assets = () => {
           return <AssetsElement key={elem.meta.symbol} data={elem} />;
         })}
         <div className="app__assets-button">
-          <AddNewElement />
+          <AddNewElement show={show} handleClick={test} title={"ADD ASSETS"} />
         </div>
       </div>
     </div>

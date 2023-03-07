@@ -1,11 +1,8 @@
-import { useRef } from "react";
-import { useSelector } from "react-redux";
-import { RootState, useAppSelector } from "../../redux/store";
+import { useRef, useState } from "react";
+import { useAppSelector } from "../../redux/store";
 import { createMetricsArray } from "../../utils/createMetricsArray";
-import { data } from "../../utils/data";
-import { dataTwo } from "../../utils/dataTwo";
 import { findMinMax } from "../../utils/findMinMax";
-import { AddNewElement } from "../buttons/addNewElement";
+import { AddNewElement } from "../AddNew/AddNewElement";
 import { ChartsElement } from "./ChartsElement";
 
 export const Charts = () => {
@@ -13,11 +10,11 @@ export const Charts = () => {
   //console.log(data);
   const data = useAppSelector((state) => state.charts.chartsList[0]);
   const boundaryValues = useRef(findMinMax(data, 280));
+  const [show, setShow] = useState<boolean>(false);
+
   console.log(boundaryValues);
   const test = () => {
-    document
-      .getElementById("test")
-      ?.classList.toggle("app__charts-candlestick-elem-info--active");
+    setShow((prev) => !prev);
   };
   const metricsArray = createMetricsArray(boundaryValues.current.min, 10, boundaryValues.current.diff / 10)
 
@@ -53,7 +50,7 @@ export const Charts = () => {
         </div>
 
         <div className="app__charts-button">
-          <AddNewElement />
+          <AddNewElement show={show} handleClick={test} title={'ADD CHARTS'} />
         </div>
 
       </div>

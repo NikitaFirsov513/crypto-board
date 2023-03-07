@@ -200,14 +200,13 @@ h2 {
     &__charts {
         padding: 79px 75px 0 75px;
 
-        &-list{
+        &-list {
             display: flex;
             gap: 26px;
             flex-wrap: wrap;
             align-items: end;
         }
         &-button {
-                
             height: 335px;
             width: 570px;
         }
@@ -342,6 +341,81 @@ h2 {
             background: #131024;
             border: 1px solid #7d67ff;
             border-radius: 10px;
+        }
+    }
+    &__add {
+        z-index: 10;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        background: rgba(255, 255, 255, 0.3);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-wrapper {
+            height: 90vh;
+            width: 811px;
+            border-radius: 27px;
+
+            background-color: #131024;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & h1 {
+                width: calc(100% - 76px);
+                padding: 35px 0 0 0;
+            }
+            & input {
+                margin: 25px 0px 0px 0px;
+                padding: 12px 16px;
+
+                outline: none;
+                border: none;
+                width: 682px;
+                height: 20px;
+
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                /* identical to box height, or 125% */
+
+                letter-spacing: -0.02em;
+
+                color: #000000;
+                border-radius: 10px;
+                border: 2px solid #e6e6e6;
+                border-radius: 10px;
+                &::placeholder {
+                    color: #7f7f7f;
+                }
+            }
+        }
+        &-list {
+            margin: 52px 0 60px 0;
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: calc(100% - 60px);
+
+            & p {
+                cursor: pointer;
+                color: #ffffff;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 20px;
+                padding: 10px 0 10px 8px;
+                border-bottom: 1px solid #ffffff;
+                &:hover {
+                    background: rgba(217, 217, 217, 0.2);
+                }
+            }
         }
     }
 }
