@@ -3,11 +3,13 @@ import { useAppSelector } from "../../redux/store";
 import { AssetsElement } from "./AssetsElement";
 import { AddNewElement } from "../AddNew/AddNewElement";
 import { useDispatch } from "react-redux";
-import { LOAD_ASSETS, LOAD_ASSETS_ERROR } from "../../redux/reducers/assets/assetsActionType";
+import {
+  LOAD_ASSETS,
+  LOAD_ASSETS_ERROR,
+} from "../../redux/reducers/assets/assetsActionType";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
 
 export const Assets = () => {
-
   const dispatch = useDispatch();
   const data = useAppSelector((state) => state.assets.assetsList);
   const [show, setShow] = useState<boolean>(false);
@@ -24,16 +26,15 @@ export const Assets = () => {
         type: LOAD_ASSETS_ERROR,
         payload: {
           message: "Asset " + symbol + " уже добавлен",
-        }
+        },
       });
-      toggleShow()
       return;
     } else {
       dispatch({
         type: LOAD_ASSETS,
         payload: symbol,
       });
-      toggleShow()
+      toggleShow();
     }
   };
 
@@ -45,7 +46,12 @@ export const Assets = () => {
           return <AssetsElement key={elem.meta.symbol} data={elem} />;
         })}
         <div className="app__assets-button">
-          <AddNewElement chooseElement={chooseElement} show={show} handleClick={toggleShow} title={"ADD ASSETS"} />
+          <AddNewElement
+            chooseElement={chooseElement}
+            show={show}
+            handleClick={toggleShow}
+            title={"ADD ASSETS"}
+          />
         </div>
       </div>
     </div>

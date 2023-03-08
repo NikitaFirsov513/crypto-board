@@ -31,7 +31,7 @@ export function* loadAssets({ type, payload }: ILoadAssets): any {
   else {
     yield put({
       type: LOAD_ASSETS_ERROR,
-      payload: { message: myData.message }
+      payload: { message: "Ошибка загрузки" }
     })
   }
 

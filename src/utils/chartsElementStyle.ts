@@ -10,13 +10,15 @@ export const chartsElementStyle = ({
 }: TChartsElement) => {
   const px = boundaryValues.px;
   const min = boundaryValues.min;
+  const minHeight = 1;
 
   if (open <= close) {
+    let height = (close - open) / px;
     return {
       color: "#3edd87",
 
       graphElem: {
-        height: (close - open) / px,
+        height: height < 1 ? minHeight : height,
         marginBottom: (open - min) / px,
       },
       topSpan: {
@@ -28,11 +30,15 @@ export const chartsElementStyle = ({
       },
     };
   }
+
+  
+  let height = (open - close) / px;
+
   return {
     color: "#F46565",
 
     graphElem: {
-      height: (open - close) / px,
+      height: height < 1 ? minHeight : height,
       marginBottom: (close - min) / px,
     },
     topSpan: {
