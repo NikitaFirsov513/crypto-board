@@ -1,5 +1,5 @@
 import { TData } from "../../../utils/data";
-import { LOAD__CHARTS_SUCCESS, TChartsAction } from "./chartsActionType";
+import { LOAD__CHARTS_ERROR, LOAD__CHARTS_SUCCESS, TChartsAction } from "./chartsActionType";
 
 
 export interface IChartsState {
@@ -22,6 +22,9 @@ export default function chartsReducer(
                 ...state,
                 chartsList: [...state.chartsList, action.payload],
             };
+        }
+        case LOAD__CHARTS_ERROR: {
+            alert(action.payload.message)
         }
         default:
             return state;

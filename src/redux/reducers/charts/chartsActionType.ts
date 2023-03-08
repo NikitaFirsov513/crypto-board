@@ -17,5 +17,10 @@ export interface ILoadChartsSuccess {
     payload: TData;
 }
 
+export const LOAD__CHARTS_ERROR = "LOAD__CHARTS_ERROR";
 
-export type TChartsAction = ILoadCharts | ILoadChartsSuccess;
+export interface ILoadChartsError {
+    type: typeof LOAD__CHARTS_ERROR;
+    payload: { message: string };
+}
+export type TChartsAction = ILoadCharts | ILoadChartsSuccess | ILoadChartsError;

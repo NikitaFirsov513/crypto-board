@@ -4,35 +4,28 @@ import { symbolList } from "../../utils/sumbolList";
 
 type TAddNewElementProps = {
     title: string,
-    handleClick: () => void,
     show: boolean,
+    handleClick: () => void,
+    chooseElement: (symbol: string) => void,
 }
 
-export const AddNewElement = ({ title, handleClick, show }: TAddNewElementProps) => {
-
+export const AddNewElement = ({ title, handleClick, show, chooseElement }: TAddNewElementProps) => {
 
     const [mas, setMas] = useState(symbolList);
     const [value, setValue] = useState('');
     const timeout = useRef<number>();
 
-
     function changeInput(inputVal: string) {
         clearTimeout(timeout.current);
-
-        if (inputVal === undefined)
-            return
-
         setValue(inputVal);
 
-        
         timeout.current = setTimeout(() => {
-            if (value == '') {
+            if (inputVal == '') {
                 setMas(symbolList);
             } else {
-                setMas(changeSymbolList(symbolList, value));
+                setMas(changeSymbolList(symbolList, inputVal));
             }
-        }, 1000);
-
+        }, 500);
     }
 
 
@@ -52,7 +45,7 @@ export const AddNewElement = ({ title, handleClick, show }: TAddNewElementProps)
                         <h1>{title}</h1>
                         <input type="text" value={value} onChange={e => changeInput(e.target.value)} placeholder="placeholder" />
                         <div className="app__add-list">
-                            {mas.map((elem, i) => <p key={elem.name + i}>{elem.name} ({elem.symbol}/{elem.currency})</p>)}
+                            {mas.map((elem, i) => <p onClick={e => chooseElement(elem.symbol)} key={elem.name + i}>{elem.name} ({elem.symbol}/{elem.currency})</p>)}
                         </div>
                     </div>
                 </div>

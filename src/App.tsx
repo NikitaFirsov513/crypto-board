@@ -19,16 +19,12 @@ function App() {
 
     dispatch({
       type: LOAD_ASSETS,
-      payload: {
-        data: LOAD_ASSETS,
-      },
+      payload: 'AAPL',
     });
 
     dispatch({
       type: LOAD__CHARTS,
-      payload: {
-        data: LOAD__CHARTS,
-      },
+      payload: 'AAPL',
     });
   }, []);
 

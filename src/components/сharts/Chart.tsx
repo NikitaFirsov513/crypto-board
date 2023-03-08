@@ -22,14 +22,14 @@ export const Chart = ({ data }: TChartProps) => {
         <div className="app__charts-container">
             <div className="app__charts-metric">
 
-                {metricsArray.map((elem) => <p key={elem}>{elem}</p>)}
+                {metricsArray.map((elem, i) => <p key={elem + "" + i}>{elem}</p>)}
             </div>
             <div className="app__charts-candlestick">
                 {data.values.map((elem, i) => {
                     return (
                         <ChartsElement
                             index={i}
-                            key={elem.datetime}
+                            key={elem.datetime + elem.volume}
                             datetime={elem.datetime}
                             open={Number(elem.open)}
                             high={Number(elem.high)}
@@ -39,7 +39,6 @@ export const Chart = ({ data }: TChartProps) => {
                         />
                     );
                 })}
-
             </div>
         </div>
     </div>)
