@@ -1,6 +1,7 @@
 import { TData } from "../../../utils/data";
 import {
   LOAD_ASSETS,
+  LOAD_ASSETS_ERROR,
   LOAD_ASSETS_SUCCESS,
   TAssetsAction,
 } from "./assetsActionType";
@@ -23,6 +24,9 @@ export default function assetsReducer(
         ...state,
         assetsList: [...state.assetsList, action.payload],
       };
+    }
+    case LOAD_ASSETS_ERROR: {
+      alert(action.payload.message)
     }
     default:
       return state;

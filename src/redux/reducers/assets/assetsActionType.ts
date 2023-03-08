@@ -15,6 +15,12 @@ export interface ILoadAssetsSuccess {
   type: typeof LOAD_ASSETS_SUCCESS;
   payload: TData;
 }
+export const LOAD_ASSETS_ERROR = "LOAD_ASSETS_ERROR";
+
+export interface ILoadAssetsError {
+  type: typeof LOAD_ASSETS_ERROR;
+  payload: { message: string };
+}
 
 
-export type TAssetsAction = ILoadAssets | ILoadAssetsSuccess;
+export type TAssetsAction = ILoadAssets | ILoadAssetsSuccess | ILoadAssetsError;

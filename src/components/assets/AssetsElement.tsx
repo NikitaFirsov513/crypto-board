@@ -43,7 +43,7 @@ export const AssetsElement = ({ data }: TAssetsElement) => {
         <div className="app__assets-element-info">
           <p className="app__assets-element-info-name">{data.meta.symbol}</p>
           <p className="app__assets-element-info-price">
-            {Math.floor(Number(data.values[0].high))}
+            {Math.floor(Number(data.values[0].high))}$
           </p>
         </div>
         <canvas ref={refCanvas} width="110" height="55"></canvas>

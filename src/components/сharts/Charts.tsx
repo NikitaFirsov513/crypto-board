@@ -25,6 +25,8 @@ export const Charts = () => {
           message: "Charts " + symbol + " уже добавлен",
         }
       });
+      toggleShow()
+
       return;
     }
 
