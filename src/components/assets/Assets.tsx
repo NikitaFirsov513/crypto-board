@@ -4,6 +4,7 @@ import { AssetsElement } from "./AssetsElement";
 import { AddNewElement } from "../AddNew/AddNewElement";
 import { useDispatch } from "react-redux";
 import {
+  DELETE_ASSETS,
   LOAD_ASSETS,
   LOAD_ASSETS_ERROR,
 } from "../../redux/reducers/assets/assetsActionType";
@@ -16,6 +17,15 @@ export const Assets = () => {
 
   const toggleShow = () => {
     setShow((prev) => !prev);
+  };
+
+  const deleteElem = (symbol: string) => {
+    dispatch({
+      type: DELETE_ASSETS,
+      payload: {
+        symbol: symbol,
+      },
+    });
   };
 
   const chooseElement = (symbol: string) => {
@@ -43,7 +53,13 @@ export const Assets = () => {
       <h1>ASSETS</h1>
       <div className="app__assets-list">
         {data.map((elem) => {
-          return <AssetsElement key={elem.meta.symbol} data={elem} />;
+          return (
+            <AssetsElement
+              deleteAction={deleteElem}
+              key={elem.meta.symbol}
+              data={elem}
+            />
+          );
         })}
         <div className="app__assets-button">
           <AddNewElement

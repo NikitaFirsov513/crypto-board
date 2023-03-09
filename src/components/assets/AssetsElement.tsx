@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { findMinMax } from "../../utils/findMinMax";
 import { TAssetsElement } from "./Assets.props";
 
-export const AssetsElement = ({ data }: TAssetsElement) => {
+export const AssetsElement = ({ data, deleteAction }: TAssetsElement) => {
   const refCanvas = useRef<HTMLCanvasElement | null>(null);
   const boundaryValues = useRef(findMinMax(data, 52));
 
@@ -38,7 +38,10 @@ export const AssetsElement = ({ data }: TAssetsElement) => {
   }, []);
 
   return (
-    <div className="app__assets-element">
+    <div
+      onClick={(e) => deleteAction(data.meta.symbol)}
+      className="app__assets-element"
+    >
       <div className="app__assets-element-top">
         <div className="app__assets-element-info">
           <p className="app__assets-element-info-name">{data.meta.symbol}</p>

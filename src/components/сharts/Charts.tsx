@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { LOAD__CHARTS, LOAD__CHARTS_ERROR } from "../../redux/reducers/charts/chartsActionType";
+import {
+  DELETE_CHARTS,
+  LOAD__CHARTS,
+  LOAD__CHARTS_ERROR,
+} from "../../redux/reducers/charts/chartsActionType";
 import { useAppSelector } from "../../redux/store";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
 import { AddNewElement } from "../AddNew/AddNewElement";
 import { Chart } from "./Chart";
 
 export const Charts = () => {
-
   const dispatch = useDispatch();
   const data = useAppSelector((state) => state.charts.chartsList);
   const [show, setShow] = useState<boolean>(false);
@@ -15,6 +18,16 @@ export const Charts = () => {
   const toggleShow = () => {
     setShow((prev) => !prev);
   };
+
+  const deleteElem = (symbol: string) => {
+    dispatch({
+      type: DELETE_CHARTS,
+      payload: {
+        symbol: symbol,
+      },
+    });
+  };
+
   const chooseElement = (symbol: string) => {
     let symbolInArray = findSymbolInArray(data, symbol);
 
@@ -23,7 +36,7 @@ export const Charts = () => {
         type: LOAD__CHARTS_ERROR,
         payload: {
           message: "Charts " + symbol + " уже добавлен",
-        }
+        },
       });
 
       return;
@@ -33,17 +46,23 @@ export const Charts = () => {
       type: LOAD__CHARTS,
       payload: symbol,
     });
-    toggleShow()
+    toggleShow();
   };
-
 
   return (
     <div className="app__charts">
       <h1>Candlestick Chart</h1>
       <div className="app__charts-list">
-        {data.map((e) => <Chart key={e.meta.symbol} data={e} />)}
+        {data.map((e) => (
+          <Chart deleteAction={deleteElem} key={e.meta.symbol} data={e} />
+        ))}
         <div className="app__charts-button">
-          <AddNewElement chooseElement={chooseElement} show={show} handleClick={toggleShow} title={'ADD CHARTS'} />
+          <AddNewElement
+            chooseElement={chooseElement}
+            show={show}
+            handleClick={toggleShow}
+            title={"ADD CHARTS"}
+          />
         </div>
       </div>
     </div>

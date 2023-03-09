@@ -9,32 +9,28 @@ import { LOAD_TEST } from "./redux/reducers/test/testActionType";
 import { useAppSelector } from "./redux/store";
 
 function App() {
-
-
   const dispatch = useDispatch();
   const dataAssets = useAppSelector((state) => state.assets.assetsList);
   const dataCharts = useAppSelector((state) => state.charts.chartsList);
 
   useEffect(() => {
-
     dispatch({
       type: LOAD_ASSETS,
-      payload: 'AAPL',
+      payload: "AAPL",
     });
 
     dispatch({
       type: LOAD__CHARTS,
-      payload: 'AAPL',
+      payload: "AAPL",
     });
   }, []);
-
 
   return (
     <div className="app">
       <div className="app__container">
         <Header />
-        {dataAssets.length > 0 ? <Assets /> : <></>}
-        {dataCharts.length > 0 ? <Charts /> : <></>}
+        <Assets />
+        <Charts />
       </div>
     </div>
   );

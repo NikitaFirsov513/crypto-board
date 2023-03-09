@@ -1,5 +1,7 @@
 import { TData } from "../../../utils/data";
+import { delateElemBySymbol } from "../../../utils/delateElemBySymbol";
 import {
+  DELETE_ASSETS,
   LOAD_ASSETS,
   LOAD_ASSETS_ERROR,
   LOAD_ASSETS_SUCCESS,
@@ -25,9 +27,19 @@ export default function assetsReducer(
         assetsList: [...state.assetsList, action.payload],
       };
     }
-    case LOAD_ASSETS_ERROR: {
-      alert(action.payload.message)
+    case DELETE_ASSETS: {
+      let data = state.assetsList;
+      data = delateElemBySymbol(data, action.payload.symbol);
+      return {
+        ...state,
+        assetsList: data,
+      };
+      alert(action.payload);
     }
+    case LOAD_ASSETS_ERROR: {
+      alert(action.payload);
+    }
+
     default:
       return state;
   }
