@@ -27,9 +27,23 @@ export interface IDeleteAssets {
   type: typeof DELETE_ASSETS;
   payload: { symbol: string };
 }
+export const INIT_ASSETS = "INIT_ASSETS";
+
+export interface IInitAssets {
+  type: typeof INIT_ASSETS;
+  payload: { symbol: string };
+}
+
+export const INIT_ASSETS_SUCCESS = "INIT_ASSETS_SUCCESS";
+
+export interface IInitAssetsSuccess {
+  type: typeof INIT_ASSETS_SUCCESS;
+  payload: TData[];
+}
 
 export type TAssetsAction =
   | ILoadAssets
   | ILoadAssetsSuccess
   | ILoadAssetsError
-  | IDeleteAssets;
+  | IDeleteAssets
+  | IInitAssetsSuccess;

@@ -1,7 +1,9 @@
+import { addToLS } from "../../../utils/addToLS";
 import { TData } from "../../../utils/data";
 import { delateElemBySymbol } from "../../../utils/delateElemBySymbol";
 import {
   DELETE_ASSETS,
+  INIT_ASSETS_SUCCESS,
   LOAD_ASSETS,
   LOAD_ASSETS_ERROR,
   LOAD_ASSETS_SUCCESS,
@@ -22,6 +24,7 @@ export default function assetsReducer(
   switch (action.type) {
     case LOAD_ASSETS_SUCCESS: {
       console.log(action.payload);
+      addToLS('assets', action.payload.meta.symbol)
       return {
         ...state,
         assetsList: [...state.assetsList, action.payload],
@@ -34,7 +37,12 @@ export default function assetsReducer(
         ...state,
         assetsList: data,
       };
-      alert(action.payload);
+    }
+    case INIT_ASSETS_SUCCESS: {
+      return {
+        ...state,
+        assetsList: action.payload,
+      };
     }
     case LOAD_ASSETS_ERROR: {
       alert(action.payload);

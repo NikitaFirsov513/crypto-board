@@ -9,6 +9,8 @@ import {
   LOAD_ASSETS_ERROR,
 } from "../../redux/reducers/assets/assetsActionType";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
+import { addToLS } from "../../utils/addToLS";
+import { deleteFromLS } from "../../utils/deleteFromLS";
 
 export const Assets = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ export const Assets = () => {
         symbol: symbol,
       },
     });
+    deleteFromLS('assets', symbol)
   };
 
   const chooseElement = (symbol: string) => {
