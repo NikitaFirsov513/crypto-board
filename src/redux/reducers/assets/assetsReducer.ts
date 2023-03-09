@@ -24,7 +24,7 @@ export default function assetsReducer(
   switch (action.type) {
     case LOAD_ASSETS_SUCCESS: {
       console.log(action.payload);
-      addToLS('assets', action.payload.meta.symbol)
+      addToLS("assets", action.payload.meta.symbol);
       return {
         ...state,
         assetsList: [...state.assetsList, action.payload],

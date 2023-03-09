@@ -27,8 +27,24 @@ export interface IDeleteCharts {
   type: typeof DELETE_CHARTS;
   payload: { symbol: string };
 }
+
+export const INIT_CHARTS = "INIT_CHARTS";
+
+export interface IInitCharts {
+  type: typeof INIT_CHARTS;
+  payload: { symbol: string };
+}
+
+export const INIT_CHARTS_SUCCESS = "INIT_CHARTS_SUCCESS";
+
+export interface IInitChartsSuccess {
+  type: typeof INIT_CHARTS_SUCCESS;
+  payload: TData[];
+}
+
 export type TChartsAction =
   | ILoadCharts
   | ILoadChartsSuccess
   | ILoadChartsError
-  | IDeleteCharts;
+  | IDeleteCharts
+  | IInitChartsSuccess;

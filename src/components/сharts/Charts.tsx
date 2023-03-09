@@ -6,6 +6,7 @@ import {
   LOAD__CHARTS_ERROR,
 } from "../../redux/reducers/charts/chartsActionType";
 import { useAppSelector } from "../../redux/store";
+import { deleteFromLS } from "../../utils/deleteFromLS";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
 import { AddNewElement } from "../AddNew/AddNewElement";
 import { Chart } from "./Chart";
@@ -26,6 +27,7 @@ export const Charts = () => {
         symbol: symbol,
       },
     });
+    deleteFromLS("charts", symbol);
   };
 
   const chooseElement = (symbol: string) => {

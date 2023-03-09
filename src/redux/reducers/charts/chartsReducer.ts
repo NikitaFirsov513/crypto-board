@@ -1,7 +1,9 @@
+import { addToLS } from "../../../utils/addToLS";
 import { TData } from "../../../utils/data";
 import { delateElemBySymbol } from "../../../utils/delateElemBySymbol";
 import {
   DELETE_CHARTS,
+  INIT_CHARTS_SUCCESS,
   LOAD__CHARTS_ERROR,
   LOAD__CHARTS_SUCCESS,
   TChartsAction,
@@ -22,6 +24,7 @@ export default function chartsReducer(
   switch (action.type) {
     case LOAD__CHARTS_SUCCESS: {
       console.log(action.payload);
+      addToLS("charts", action.payload.meta.symbol);
 
       return {
         ...state,
@@ -34,6 +37,12 @@ export default function chartsReducer(
       return {
         ...state,
         chartsList: data,
+      };
+    }
+    case INIT_CHARTS_SUCCESS: {
+      return {
+        ...state,
+        chartsList: action.payload,
       };
     }
     case LOAD__CHARTS_ERROR: {
