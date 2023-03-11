@@ -235,7 +235,7 @@ h2 {
       padding: 18px 0 35px 11px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
 
       & p {
         color: var(--h2-color);
@@ -266,8 +266,8 @@ h2 {
     &-candlestick {
       display: flex;
       gap: 6px;
-      height: 280px;
-      margin-top: 29px;
+      height: 302px;
+      margin-top: 34px;
       margin-left: 25px;
       align-items: flex-end;
       flex-direction: row-reverse;
@@ -275,6 +275,7 @@ h2 {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 5px;
         & > div {
           position: relative;
           background: #3edd87;

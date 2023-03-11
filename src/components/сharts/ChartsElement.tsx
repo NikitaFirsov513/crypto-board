@@ -11,8 +11,7 @@ export const ChartsElement = ({
   close,
   boundaryValues,
 }: TChartsElement) => {
-
-  const elem = useRef<HTMLDivElement>(null)
+  const elem = useRef<HTMLDivElement>(null);
 
   const styles = chartsElementStyle({
     index,
@@ -24,14 +23,16 @@ export const ChartsElement = ({
     boundaryValues,
   });
 
-
+  console.log({ styles });
 
   const show = () => {
     elem.current?.classList.toggle("app__charts-candlestick-elem-info--active");
   };
   return (
     <div className="app__charts-candlestick-elem">
-      <div onMouseOver={() => show()} onMouseOut={() => show()}
+      <div
+        onMouseOver={() => show()}
+        onMouseOut={() => show()}
         style={{
           height: styles.graphElem.height,
           marginBottom: styles.graphElem.marginBottom,
@@ -58,10 +59,11 @@ export const ChartsElement = ({
           <p>high:{high}</p>
           <p>low:{low}</p>
           <p>close:{close}</p>
-
         </div>
       </div>
-      <p>{datetime.split('-')[1]}.{datetime.split('-')[2]}</p>
-    </div >
+      <p>
+        {datetime.split("-")[1]}.{datetime.split("-")[2]}
+      </p>
+    </div>
   );
 };

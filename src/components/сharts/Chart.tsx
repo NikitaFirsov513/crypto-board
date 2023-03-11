@@ -10,13 +10,14 @@ type TChartProps = {
 };
 
 export const Chart = ({ data, deleteAction }: TChartProps) => {
-  const boundaryValues = useRef(findMinMax(data, 280));
+  const boundaryValues = useRef(findMinMax(data, 289));
   const metricsArray = createMetricsArray(
     boundaryValues.current.min,
     10,
     boundaryValues.current.diff / 10
   );
 
+  console.log({ boundaryValues, metricsArray });
   return (
     <div className="app__charts-element">
       <h2>{data.meta.symbol}</h2>

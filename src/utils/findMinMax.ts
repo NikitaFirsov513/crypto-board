@@ -16,5 +16,6 @@ export const findMinMax = (data: TData, height: number) => {
   const px = diff / height;
   //const px = 250 / diff;
   //alert(diff + '-' + px)
+  console.log({ min, max, diff, px });
   return { min, max, diff, px };
 };

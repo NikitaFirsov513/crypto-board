@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Assets } from "./components/assets/Assets";
 import { Header } from "./components/header/Header";
 import { Charts } from "./components/сharts/Charts";
-import { INIT_ASSETS, } from "./redux/reducers/assets/assetsActionType";
+import { INIT_ASSETS } from "./redux/reducers/assets/assetsActionType";
 import { INIT_CHARTS } from "./redux/reducers/charts/chartsActionType";
 import { getDataFromLS } from "./utils/getDataFromLS";
 
@@ -16,9 +16,8 @@ function App() {
     dispatch({ type: INIT_ASSETS, payload: { symbol: testAssets } });
     let charts = getDataFromLS("charts");
     dispatch({ type: INIT_CHARTS, payload: { symbol: charts } });
-    console.log(testAssets);
-    console.log(charts);
-
+    //console.log(testAssets);
+    //console.log(charts);
   }, []);
 
   return (
