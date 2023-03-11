@@ -45,7 +45,7 @@ export default function assetsReducer(
       };
     }
     case LOAD_ASSETS_ERROR: {
-      alert(action.payload);
+      alert(action.payload.message);
     }
 
     default:

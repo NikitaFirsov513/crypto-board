@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { drawCanvas } from "../../utils/drawCanvas";
 import { findMinMax } from "../../utils/findMinMax";
 import { TAssetsElement } from "./Assets.props";
 
@@ -7,34 +8,11 @@ export const AssetsElement = ({ data, deleteAction }: TAssetsElement) => {
   const boundaryValues = useRef(findMinMax(data, 52));
 
   useEffect(() => {
-    console.log(data);
     if (refCanvas.current === null) return;
 
+    const val = boundaryValues.current;
     const canvas = refCanvas.current;
-    const context = canvas.getContext("2d");
-    context?.clearRect(0, 0, canvas.width, canvas.height);
-    const px = boundaryValues.current.px;
-    const min = boundaryValues.current.min;
-
-    if (context === null) return;
-
-    context.lineWidth = 2;
-    context.strokeStyle = "rgb(255,255,255)";
-    context.lineCap = "round";
-    //context.moveTo(0, 52);
-
-    for (let i = 0; i < data.values.length; i++) {
-      const high = Number(data.values[i].high);
-
-      if (i == 0) {
-        context.moveTo(0, (high - min) / px);
-      } else {
-        context.lineTo(i * (110 / data.values.length), (high - min) / px);
-        const x = i * (110 / data.values.length);
-        const y = (high - min) / px;
-      }
-    }
-    context.stroke();
+    drawCanvas({ data, boundaryValues: val, canvas })
   }, []);
 
   return (

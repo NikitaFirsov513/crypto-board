@@ -64,40 +64,4 @@ export const ChartsElement = ({
       <p>{datetime.split('-')[1]}.{datetime.split('-')[2]}</p>
     </div >
   );
-};/* <div className="app__charts-candlestick-elem">
-<div
-  style={{
-    height: styles.graphElem.height,
-    marginBottom: styles.graphElem.marginBottom,
-    backgroundColor: styles.color,
-  }}
-  className="app__charts-candlestick-elem-body"
->
-  <span
-    style={{
-      marginTop: -styles.topSpan.height,
-      height: styles.topSpan.height,
-      background: styles.color,
-    }}
-  ></span>
-  <span
-    style={{
-      marginTop: -styles.botSpan.height,
-      height: styles.botSpan.height,
-      background: styles.color,
-    }}
-  ></span>
-</div>
-<p>10:00</p>
-</div>
-
-
-
- console.group()
-  console.log({ open })
-  console.log({ high })
-  console.log({ low })
-  console.log({ close })
-  console.log({ datetime })
-  console.log({ styles })
-  console.groupEnd()*/
+};

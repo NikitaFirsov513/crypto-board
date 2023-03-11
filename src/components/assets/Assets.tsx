@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "../../redux/store";
 import { AssetsElement } from "./AssetsElement";
-import { AddNewElement } from "../AddNew/AddNewElement";
+import { AddNewElement } from "../addNew/AddNewElement";
 import { useDispatch } from "react-redux";
 import {
   DELETE_ASSETS,
@@ -9,10 +9,10 @@ import {
   LOAD_ASSETS_ERROR,
 } from "../../redux/reducers/assets/assetsActionType";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
-import { addToLS } from "../../utils/addToLS";
 import { deleteFromLS } from "../../utils/deleteFromLS";
 
 export const Assets = () => {
+
   const dispatch = useDispatch();
   const data = useAppSelector((state) => state.assets.assetsList);
   const [show, setShow] = useState<boolean>(false);
@@ -50,7 +50,7 @@ export const Assets = () => {
       toggleShow();
     }
   };
-
+  
   return (
     <div className="app__assets">
       <h1>ASSETS</h1>

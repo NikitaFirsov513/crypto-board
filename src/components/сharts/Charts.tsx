@@ -8,7 +8,7 @@ import {
 import { useAppSelector } from "../../redux/store";
 import { deleteFromLS } from "../../utils/deleteFromLS";
 import { findSymbolInArray } from "../../utils/findSymbolInArray";
-import { AddNewElement } from "../AddNew/AddNewElement";
+import { AddNewElement } from "../addNew/AddNewElement";
 import { Chart } from "./Chart";
 
 export const Charts = () => {

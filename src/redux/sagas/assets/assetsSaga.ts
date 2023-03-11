@@ -30,6 +30,7 @@ function* loadAssets({ type, payload }: ILoadAssets): any {
   const myData = yield axios.request(options);
   console.log(myData.data);
   if (myData.data.status === "ok") {
+    
     yield put({
       type: LOAD_ASSETS_SUCCESS,
       payload: myData.data,
