@@ -11,13 +11,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //window.localStorage.setItem('assets', '')
     let testAssets = getDataFromLS("assets");
     dispatch({ type: INIT_ASSETS, payload: { symbol: testAssets } });
     let charts = getDataFromLS("charts");
     dispatch({ type: INIT_CHARTS, payload: { symbol: charts } });
-    //console.log(testAssets);
-    //console.log(charts);
   }, []);
 
   return (

@@ -23,7 +23,6 @@ export const ChartsElement = ({
     boundaryValues,
   });
 
-  console.log({ styles });
 
   const show = () => {
     elem.current?.classList.toggle("app__charts-candlestick-elem-info--active");

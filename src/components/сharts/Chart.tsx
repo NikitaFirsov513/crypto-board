@@ -17,7 +17,6 @@ export const Chart = ({ data, deleteAction }: TChartProps) => {
     boundaryValues.current.diff / 10
   );
 
-  console.log({ boundaryValues, metricsArray });
   return (
     <div className="app__charts-element">
       <h2>{data.meta.symbol}</h2>
