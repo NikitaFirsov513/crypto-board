@@ -1,6 +1,6 @@
 <h1>crypto-board</h1>
 <p>Основная цель приложения - отображать данные по ценным бумагам и тд.</p>
-<p>Даные берутся из <a href="https://rapidapi.com/twelvedata/api/twelve-data1/details">Twelve Data</a></p>
+<p>Даные берутся из <a href="https://rapidapi.com/twelvedata/api/twelve-data1/details">Twelve Data</a>.</p>
 <p>Стек:</p>
 <ul>
   <li>TS;</li>
