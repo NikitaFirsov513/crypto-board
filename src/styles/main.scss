@@ -4,8 +4,10 @@
   font-family: "DM Sans", sans-serif;
   margin: 0;
   padding: 0;
+  
 }
 body {
+  min-width: 750px;
   --logo-color: #000000;
   --logo-svg-color: #352e5b;
   --theme-icon-color: #7d67ff;
@@ -209,6 +211,7 @@ h2 {
     padding: 79px 75px 0 75px;
 
     &-list {
+      min-height: 429px;
       display: flex;
       gap: 15px;
       flex-wrap: wrap;

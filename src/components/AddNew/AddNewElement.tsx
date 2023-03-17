@@ -43,7 +43,7 @@ export const AddNewElement = ({ title, handleClick, show, chooseElement }: TAddN
                 <div onClick={e => handleClick()} className="app__add">
                     <div onClick={e => { e.stopPropagation(); }} className="app__add-wrapper">
                         <h1>{title}</h1>
-                        <input type="text" value={value} onChange={e => changeInput(e.target.value)} placeholder="placeholder" />
+                        <input type="text" value={value} onChange={e => changeInput(e.target.value)} placeholder="enter" />
                         <div className="app__add-list">
                             {mas.map((elem, i) => <p onClick={e => chooseElement(elem.symbol)} key={elem.name + i}>{elem.name} ({elem.symbol}/{elem.currency})</p>)}
                         </div>
